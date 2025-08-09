@@ -1,0 +1,7 @@
+langchain
+openai
+requests
+openrouter
+python-dotenv
+langchain_openai
+fpdf
