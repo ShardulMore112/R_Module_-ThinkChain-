@@ -1,7 +1,7 @@
 import requests
 import time
 
-def fetch_openalex_papers(query: str, max_count: int = 10, timeout: int = 10, retries: int = 3):
+def fetch_openalex_papers(query: str, max_count: int = 3, timeout: int = 10, retries: int = 3):
     """
     Fetches top papers from OpenAlex based on a query.
     Returns a list of dicts with title, abstract (reconstructed), authors, year.
@@ -13,7 +13,7 @@ def fetch_openalex_papers(query: str, max_count: int = 10, timeout: int = 10, re
         "sort": "relevance_score:desc",
     }
     headers = {
-        "User-Agent": "YourAppName/1.0 (your-email@example.com)"  # OpenAlex requires this
+        "User-Agent": "RModule/1.0 (your-email@example.com)"
     }
 
     for attempt in range(retries):
@@ -30,7 +30,6 @@ def fetch_openalex_papers(query: str, max_count: int = 10, timeout: int = 10, re
 
     papers = []
     for item in data.get("results", []):
-        # Reconstruct abstract if available
         abstract_idx = item.get("abstract_inverted_index")
         if abstract_idx:
             words = [""] * (max(pos for positions in abstract_idx.values() for pos in positions) + 1)
