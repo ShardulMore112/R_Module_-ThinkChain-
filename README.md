@@ -99,14 +99,15 @@ Defined in `tools.py` using LangChain's `Tool` API:
 ## 📄 Example Outputs
 
 ### **Research Idea Example**
-Adaptive Curriculum Learning in LLM Fine-tuning
+1.Adaptive Curriculum Learning in LLM Fine-tuning
+
 1.2 Description: Investigates progressive task difficulty adjustments during fine-tuning of LLMs for domain-specific knowledge acquisition.
+
 1.3 Skills Required: NLP, Reinforcement Learning, PyTorch, Prompt Engineering
 
 
 ### **Research Gaps Example**
 Research Gaps:
-
 Lack of interpretability in reasoning chains for large-scale models.
 
 Underexplored cross-lingual benchmarking for LLMs.
