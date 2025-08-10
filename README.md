@@ -26,13 +26,6 @@ This tool is ideal for students, academics, and research professionals who want 
 
 ---
 
-## 📂 File Structure
-src/agent/
-|-- agent.py #Main Script: Initilizes & runs the AI Agent
-|-- tools.py #Definitions of Research Tools & LLM chains
-|-- Openalex.py #Fetches Papers from OpenAlex API
-
----
 
 ## 🔧 Installation
 1. **Clone the repository**
