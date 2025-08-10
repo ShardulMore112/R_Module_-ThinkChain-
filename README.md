@@ -1,4 +1,4 @@
-# 📚 AI Research Assistant Agent — The_R_Module
+# 📚 AI Research Assistant Agent — R_Module
 
 ## 📌 Overview
 The **AI Research Assistant Agent** is part of *The_R_Module* and is designed to assist researchers in:
@@ -26,13 +26,6 @@ This tool is ideal for students, academics, and research professionals who want 
 
 ---
 
-## 📂 File Structure
-src/agent/
-|-- agent.py #Main Script: Initilizes & runs the AI Agent
-|-- tools.py #Definitions of Research Tools & LLM chains
-|-- Openalex.py #Fetches Papers from OpenAlex API
-
----
 
 ## 🔧 Installation
 1. **Clone the repository**
@@ -106,14 +99,15 @@ Defined in `tools.py` using LangChain's `Tool` API:
 ## 📄 Example Outputs
 
 ### **Research Idea Example**
-Adaptive Curriculum Learning in LLM Fine-tuning
+1.Adaptive Curriculum Learning in LLM Fine-tuning
+
 1.2 Description: Investigates progressive task difficulty adjustments during fine-tuning of LLMs for domain-specific knowledge acquisition.
+
 1.3 Skills Required: NLP, Reinforcement Learning, PyTorch, Prompt Engineering
 
 
 ### **Research Gaps Example**
 Research Gaps:
-
 Lack of interpretability in reasoning chains for large-scale models.
 
 Underexplored cross-lingual benchmarking for LLMs.
