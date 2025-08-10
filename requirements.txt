@@ -5,3 +5,6 @@ openrouter
 python-dotenv
 langchain_openai
 fpdf
+langchain_groq
+fastapi
+uvicorn

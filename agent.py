@@ -42,17 +42,32 @@ agent = initialize_agent(
 
 if __name__ == "__main__":
     print("Welcome to the AI Research Assistant Agent!")
-    print("Examples:")
-    print(" - 'Give me novel ideas in NLP'")
-    print(" - 'Find research gaps in quantum computing'")
-    print(" - 'Extract key phrases from hospital pharmacy research'")
-    print(" - 'Fetch papers on reinforcement learning'")
-    print("Type 'exit' to quit.\n")
+    
+    domain_name = input("Enter the research domain: ").strip()
+    experience_level = input("Enter the experience level (e.g., expert, intermediate, beginner): ").strip()
+    
+    query = f"""Fetch Recent Papers on Openalex about {domain_name}, find research gaps in the current workflow and generate novel research ideas for a {experience_level} researcher
+            The  output should have the following format:
+                1. Novel Research Idea 1
+                   1.2 description abbout the ideas:
+                   1.3 skills required:
+                2. Novel Research Idea 2
+                     2.2 description about the ideas:
+                     2.3 skills required:
+                3. Novel Research Idea 3
+                     3.2 description about the ideas:
+                     3.3 skills required:
 
-    while True:
-        query = input("Enter your query: ").strip()
-        if query.lower() == "exit":
-            print("Goodbye!")
-            break
+
+                Research Gaps:
+                1. Gap 1
+                2. Gap 2
+                3. Gap 3
+                """
+    
+    
+    try:
         response = agent.run(query)
         print("\n" + response + "\n")
+    except Exception as e:
+        print(f"Error during agent execution: {e}")

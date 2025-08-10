@@ -8,21 +8,29 @@ from openalex import fetch_openalex_papers
 
 load_dotenv()
 
-# Init LLM
+
 llama_llm = ChatGroq(
     model="llama3-8b-8192",
     groq_api_key=os.getenv("GROQ_API_KEY"),
     temperature=0.7
 )
 
-# --- Tool 1: OpenAlex Paper Fetcher ---
+
+
+
+# Tool no. 1 : OpenAlex Paper Fetcher
 openalex_tool = Tool(
     name="OpenAlexPaperFetcher",
     func=lambda q: fetch_openalex_papers(q, max_count=5),
     description="Fetches top relevant academic papers from OpenAlex for a given topic."
 )
 
-# --- Tool 2: Research Idea Generator ---
+
+
+
+
+
+
 idea_prompt = ChatPromptTemplate.from_template("""
 You are an AI research advisor.
 Based on the following recent papers in {field}, do the following:
@@ -49,13 +57,25 @@ def generate_ideas_with_papers(field, experience_level="expert"):
     )
     return idea_chain.run(field=field, experience_level=experience_level, paper_list=paper_list)
 
+
+
+
+
+
+# Tool no. 2 : Research Idea Generator
 idea_tool = Tool(
     name="ResearchIdeaGenerator",
     func=lambda q: generate_ideas_with_papers(q, "expert"),
     description="Generates novel, grounded research ideas in a field using recent papers."
 )
 
-# --- Tool 3: Research Gap Analyzer ---
+
+
+
+
+
+
+
 gap_prompt = ChatPromptTemplate.from_template("""
 You are an experienced research analyst.
 You will be given recent papers in the field {field}.
@@ -70,6 +90,8 @@ Papers:
 Answer in an academic tone.
 """)
 
+
+
 gap_chain = LLMChain(llm=llama_llm, prompt=gap_prompt)
 
 def analyze_research_gaps(field):
@@ -82,13 +104,23 @@ def analyze_research_gaps(field):
     )
     return gap_chain.run(field=field, paper_list=paper_list)
 
+
+
+# Tool no. 3 : Research Gap Analyzer
 gap_analysis_tool = Tool(
     name="ResearchGapAnalyzer",
     func=lambda q: analyze_research_gaps(q),
     description="Analyzes recent papers in a field to find trends and research gaps."
 )
 
-# --- Tool 4: Key Phrase Extractor ---
+
+
+
+
+
+
+# Tool no. 4 : Key Phrase Extractor
+
 phrase_prompt = ChatPromptTemplate.from_template("""
 Extract the most relevant key phrases, technical terms, and named entities
 from the following research paper abstracts:
