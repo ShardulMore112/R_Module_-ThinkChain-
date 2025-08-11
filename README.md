@@ -1,4 +1,4 @@
-# 📚 AI Research Assistant Agent — ##THINKCHAIN##
+# 📚 AI Research Assistant Agent — THINKCHAIN
 
 ## 📌 Overview
 The **AI Research Assistant Agent** is part of *The_R_Module* and is designed to assist researchers in:
